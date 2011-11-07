@@ -2,6 +2,9 @@ namespace Nancy.Demo.Authentication.Forms
 {
     using Nancy;
     using Nancy.Authentication.Forms;
+    using Nancy.Bootstrapper;
+
+    using TinyIoC;
 
     public class FormsAuthBootstrapper : DefaultNancyBootstrapper
     {
@@ -21,7 +24,7 @@ namespace Nancy.Demo.Authentication.Forms
             container.Register<IUserMapper, UserDatabase>();
         }
 
-        protected override void RequestStartup(TinyIoC.TinyIoCContainer requestContainer, Bootstrapper.IPipelines pipelines)
+        protected override void RequestStartup(TinyIoCContainer requestContainer, IPipelines pipelines, NancyContext context)
         {
             // At request startup we modify the request pipelines to
             // include forms authentication - passing in our now request

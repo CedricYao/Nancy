@@ -76,8 +76,8 @@ namespace Nancy.Bootstrapper
 
             var requestPipelines =
                 new Pipelines(this.ApplicationPipelines);
-            
-            this.RequestStartup(requestContainer, requestPipelines);
+
+            this.RequestStartup(requestContainer, requestPipelines, context);
 
             return requestPipelines;
         }

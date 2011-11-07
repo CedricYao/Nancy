@@ -336,7 +336,7 @@
             var requestPipelines =
                 new Pipelines(this.ApplicationPipelines);
 
-            this.RequestStartup(this.ApplicationContainer, requestPipelines);
+            this.RequestStartup(this.ApplicationContainer, requestPipelines, context);
 
             return requestPipelines;
         }
@@ -365,7 +365,8 @@
         /// </summary>
         /// <param name="container"></param>
         /// <param name="pipelines"></param>
-        protected virtual void RequestStartup(TContainer container, IPipelines pipelines)
+        /// <param name="context"></param>
+        protected virtual void RequestStartup(TContainer container, IPipelines pipelines, NancyContext context)
         {
         }
 
